@@ -1,0 +1,31 @@
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Far\KeyMacros\Shell\AltUp]
+@="GoTo/Selection up"
+"Description"="GoTo/selection up"
+"DisableOutput"=dword:00000001
+"Selection"=dword:00000001
+"Sequence"="F11 $if (checkhotkey(\"L\")) L < $end"
+
+[HKEY_CURRENT_USER\Software\Far\KeyMacros\Shell\AltDown]
+@="GoTo/Selection down"
+"Description"="GoTo/Selection down"
+"DisableOutput"=dword:00000001
+"Selection"=dword:00000001
+"Sequence"="F11 $if (checkhotkey(\"L\")) L > $end"
+
+[HKEY_CURRENT_USER\Software\Far\KeyMacros\Shell\AltHome]
+@="GoTo/Selection home"
+"Description"="GoTo/selection home"
+"DisableOutput"=dword:00000001
+"EmptyCommandLine"=dword:00000001
+"Selection"=dword:00000001
+"Sequence"="F11 $if (checkhotkey(\"L\")) L ^ $end"
+
+[HKEY_CURRENT_USER\Software\Far\KeyMacros\Shell\AltEnd]
+@="GoTo/Selection end"
+"Description"="GoTo/selection end"
+"DisableOutput"=dword:00000001
+"EmptyCommandLine"=dword:00000001
+"Selection"=dword:00000001
+"Sequence"="F11 $if (checkhotkey(\"L\")) L v $end"

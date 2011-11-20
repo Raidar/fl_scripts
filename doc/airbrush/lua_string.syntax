@@ -1,0 +1,5 @@
+    keyword %% brightcyan
+    keyword %/[0-9\.]*//[idoxfegcsq]{1,1}/ brightcyan
+    keyword \\/[abfnrtv"'\[\]]{1,1}/ brightred 
+    keyword \\/[0-9]{1,3}/ brightred
+    keyword \\\\ brightred

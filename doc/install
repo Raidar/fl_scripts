@@ -1,0 +1,10 @@
+Порядок установки:
+0) Установить LuaFAR context http://forum.farmanager.com/viewtopic.php?f=11&t=5140
+
+1) Скопировать папку fl_scripts в папку <luafareditor>/scripts.
+
+2) Добавать в файл _usermenu.lua строку:
+   AddUserFile("scripts/fl_scripts/_usermenu.lua")
+
+3) Проверить горячие клавиши в файле cfg/hotkeys_config.lua
+  (обратить внимание на то, что SmartTab по умолчанию отключен)

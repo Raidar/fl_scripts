@@ -1,0 +1,8 @@
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Far\users\gmaxfl\KeyMacros\Common\F12]
+@="Lua Screens"
+"Description"="Lua Screens"
+"DisableOutput"=dword:00000001
+"Sequence"="F11 $if (CheckHotkey(\"L\")) L * $end"
+

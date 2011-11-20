@@ -1,0 +1,48 @@
+file lua\smacros \*.lua
+
+context default darkgray black
+    keyword whole for white
+    keyword whole in white
+    keyword whole do white
+    keyword whole print white
+    keyword whole function white
+    keyword whole self white
+    keyword whole if white
+    keyword whole then white
+    keyword whole elseif white
+    keyword whole else white
+    keyword whole end white
+    keyword whole while white
+    keyword whole repeat white
+    keyword whole until white
+    
+    keyword whole and white
+    keyword whole or white
+    keyword whole not white
+
+    keyword whole nil white
+    keyword whole false white
+    keyword whole true white
+
+    keyword whole return brightcyan
+    keyword whole break  brightcyan
+    keyword whole local  brightcyan
+
+    keyword whole /[\.]{2,}/ white
+
+    include syntaxes\\_numbers.syntax
+    include syntaxes\\lua_functions.syntax
+
+    keyword /[<>~=]{1,2}/ white 
+    keyword /[\[\]\(\)=\.,+\*\/~#%^:]+/ white 
+    keyword /[-]{1,1}/ white
+    keyword /[{}]+/ brightred
+
+context --[[ ]] cyan
+context -- \n             cyan
+
+context ' '  yellow
+    include syntaxes\\lua_string.syntax
+
+context " "  yellow
+    include syntaxes\\lua_string.syntax
