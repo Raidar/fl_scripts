@@ -5,6 +5,11 @@ local smenu=require"far2.searchmenu"
 
 local converter=editor.EditorToOEM or function(a) return a end
 
+local function GetLineFieldWidth ()
+  local Info = editor.GetInfo()
+  return tostring(Info.TotalLines):len() or 4 --+ 1
+end --
+
 local function check_pattern(n_start, n_local, strings, pattern)
     local str
     local n_global=n_start+n_local-1
@@ -20,7 +25,8 @@ local function check_pattern(n_start, n_local, strings, pattern)
     if type(pattern)=='string' then
         match=str:match(pattern)
         if match then
-            return { text = string.format('%4i ³ %s', n_global+1 , converter(match)), line=n_global }
+            return { text = string.format('%4i ï¿½ %s', n_global+1 , converter(match)), line=n_global }
+            --return { text = string.format('%'..GetLineFieldWidth()..'i ï¿½ %s', n_global+1 , converter(match)), line=n_global }
         end
     elseif type(pattern)=='table' then
         if pattern.multiline then
