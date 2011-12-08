@@ -44,7 +44,6 @@ local function fs_menu_generator(item)
             end
             table.insert(items,new_subitem)
         end
-        return true
     end)
     table.insert(items, { text='..', fullp=path..'/../', path=path..'/../', donotunwrap=true, donotcheck=true, sub=item.up or true } )
 
