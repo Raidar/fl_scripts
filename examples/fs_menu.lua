@@ -27,7 +27,7 @@ local function fs_menu_generator(item)
     path=clear_path(path)
     local items={}
     item.sub={ {Title=path, Bottom='left, right, space, backspace, enter', Flags=flags, use_search=true }, items }
-    far.FarRecursiveSearch(path, '*', function(v0, fullp)
+    far.RecursiveSearch(path, '*', function(v0, fullp)
         local v=v0.FileName
         if v~='.' then
             local fname=v:match('[^\\/]+$') or '<empty>'

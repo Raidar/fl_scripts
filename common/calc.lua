@@ -206,7 +206,7 @@ local function dlg_handler(handle,msg,p1,p2)
         end
     elseif msg==flags.DN_CONTROLINPUT or msg==flags.DN_INPUT then
         if p2.EventType==flags.KEY_EVENT then
-            local f=keys[far.FarInputRecordToName(p2)]
+            local f=keys[far.InputRecordToName(p2)]
             if f then
                 if type(f)=='function' then
                     return f()

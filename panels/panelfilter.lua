@@ -68,7 +68,7 @@ local function dlg_handler(handle, msg, p1, p2)
         filter_macro(PanelFilter.Mask)
     elseif msg==F.DN_CONTROLINPUT or msg==F.DN_INPUT then
         if p2.EventType==F.KEY_EVENT then
-            local name = far.FarInputRecordToName(p2)
+            local name = far.InputRecordToName(p2)
             if name=="Esc" then
                 call_macro(delfilter)
             elseif redirect_keys[name] then

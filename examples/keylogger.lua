@@ -9,7 +9,7 @@ local str=''
 local function dlg_handler(handle,msg,p1,p2)
     if msg==flags.DN_CONTROLINPUT or msg==flags.DN_INPUT then
         if p2.EventType==flags.KEY_EVENT then
-            local key=far.FarInputRecordToName(p2)
+            local key=far.InputRecordToName(p2)
             str=(str..' '..key):sub(-width)
             far.SendDlgMessage(handle, flags.DM_SETTEXT, 1, str)
 
