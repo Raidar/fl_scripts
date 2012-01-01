@@ -67,7 +67,7 @@ local function show_windows()
         elseif key==bGoto and (typ==2 or typ==3) then
             local spath=item.Name
             local sdirpath, sname=spath:match('^(.+)\\([^\\]+)$')
-            panel.SetPanelDir(nil,1,sdirpath)
+            panel.SetPanelDirectory(nil,1,sdirpath)
             local pinfo = panel.GetPanelInfo(nil,1)
             local rect=pinfo.PanelRect
             local hheight=math.floor(rect.bottom-rect.top-4)/2

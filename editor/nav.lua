@@ -149,7 +149,7 @@ find_files=function(list, silent)
         panelinfo=panel.GetPanelInfo(-1,p)
         if panelinfo.PanelType==F.PTYPE_FILEPANEL and
                 bit64.band(panelinfo.Flags, F.PFLAGS_PLUGIN)==0 then
-            list.curpath=panel.GetPanelDir(-1,p)..'\\'
+            list.curpath=panel.GetPanelDirectory(-1,p).Name..'\\'
             iter_extensions(list)
         end
     end

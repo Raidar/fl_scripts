@@ -57,7 +57,7 @@ function dirs_history()
     mFlags.Title='Folders history'
     local item,i=get_history('SavedFolderHistory','Lines')
     if item and item.text then
-        panel.SetPanelDir(nil,1,item.text)
+        panel.SetPanelDirectory(nil,1,item.text)
     end
 end
 

@@ -51,7 +51,7 @@ local function fs_menu_generator(item)
 end
 
 local function fs_menu()
-    local root={path=panel.GetPanelDir(nil, 1)}
+    local root={path=panel.GetPanelDirectory(nil, 1).Name}
     fs_menu_generator(root)
     if root.sub then
         local res, pos, mtable, checked  = menu(root.sub, nil, fs_menu_generator)
