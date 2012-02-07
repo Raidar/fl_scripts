@@ -228,7 +228,7 @@ local calculator = function(t)
     loadUserFunctions()
     items.calc[10] = table.concat(t or {}) or ''
     arguments=t
-    far.Dialog( Guid,2,5,77,14, nil, items, 0, dlg_handler )
+    far.Dialog( Guid,-1,-1,76,10, nil, items, 0, dlg_handler )
 end
 
 calculator(...)
