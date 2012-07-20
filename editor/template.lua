@@ -92,7 +92,7 @@ end
 function fl_scripts.templates_menu()
     if not init() then return end
     local items={}
-    local path_begin=far.PluginStartupInfo().ModuleName:match(".+[/\\]")..'scripts\\fl_scripts\\'
+    local path_begin=far.PluginStartupInfo().ModuleDir..'scripts\\fl_scripts\\'
     local types=ctxdata.config.types
     local pathU, pathG = path_begin..'templates_user\\', path_begin..'templates\\'
 

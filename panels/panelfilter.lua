@@ -1,6 +1,6 @@
 -- panelfilter.lua
 
-local pluginDir = far.PluginStartupInfo().ModuleName:match(".+\\")
+local pluginDir = far.PluginStartupInfo().ModuleDir
 local helpTopic = "<" .. pluginDir .. [[scripts\fl_scripts\doc\>panelfilter]]
 
 context.config.register{key="flpanelfilter", inherit=false, path="fl_scripts", name="panelfilter"}

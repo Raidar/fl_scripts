@@ -1,5 +1,4 @@
-local pluginDir = far.PluginStartupInfo().ModuleName:match(".+\\")
-local scriptsDir = pluginDir..'scripts'
+local scriptsDir = far.PluginStartupInfo().ModuleDir..'scripts'
 
 return {
     farhome = 'cd %farhome%',
