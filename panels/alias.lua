@@ -8,7 +8,7 @@ local function run_alias()
     local alias=config.flalias[cmdline]
     if not alias then return end
     panel.SetCmdLine(-1, alias)
-    return far.MacroPost ("Enter", disable_output)
+    return far.MacroPost ('Keys("Enter")', disable_output)
 end
 
 run_alias()

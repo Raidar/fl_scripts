@@ -17,48 +17,48 @@ end
 
 -- call filter dialog, open or create _luafilter_, goto filter
 local fil_1=[[
-    CtrlI
-    %%pos=Menu.Select("_luafilter_",1);
-    $If (%%pos<0)
-        $Exit
-    $Else
-        $If ( %%pos==0 )
-            Ins
-            CtrlY
-            $Text "_luafilter_"
-            Down Down Down Down Down Down Down Down Down Down Space Space
-            Up Up Up Up Up Up Up Up
-        $Else
-            F4
-            Down Down
-        $End
-    $End
-    CtrlY
+    Keys"CtrlI"
+    _G.pos=Menu.Select("_luafilter_",1)
+    if _G.pos<0 then
+        exit()
+    else
+        if _G.pos==0 then
+            Keys"Ins"
+            Keys"CtrlY"
+            print("_luafilter_")
+            Keys("Down Down Down Down Down Down Down Down Down Down Space Space")
+            Keys("Up Up Up Up Up Up Up Up")
+        else
+            Keys"F4"
+            Keys"Down Down"
+        end
+    end
+    Keys"CtrlY"
 ]]
 
 -- after filling filter, close dialog, turn on, call plugin again
 local fil_3=[[
-    Enter
-    BS Up +
-    Enter
-    "lfe:filter" Enter
-    End
+    Keys "Enter"
+    Keys "BS Up +"
+    Keys "Enter"
+    print("lfe:filter") Keys"Enter"
+    Keys"End"
 ]]
 
 local delfilter=[[
-    CtrlI
-    $if( Menu.Select("_luafilter_",1)>0 )
-        Del
-        Enter
-    $End
-    Esc
+    Keys"CtrlI"
+    if Menu.Select("_luafilter_",1)>0 then
+        Keys"Del"
+        Keys"Enter"
+    end
+    Keys"Esc"
 ]]
 
 local function filter_macro(str, key)
-    call_macro "Enter"
-    if key then call_macro(key) end
+    call_macro "Keys'Enter'"
+    if key then call_macro("Keys("..key..")") end
     call_macro(fil_1)
-    call_macro('$Text "*'..str..'*"')
+    call_macro('print "*'..str..'*"')
     call_macro(fil_3)
 end
 
