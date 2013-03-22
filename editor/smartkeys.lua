@@ -4,8 +4,8 @@ local FK = far.Keys
 -- Sets position to the first nonspace character
 function smarthome()
     local p = editor.GetInfo().CurPos
-    local p_S = (editor.GetString(nil,-1,2):find('%S') or 1) -1
-    editor.SetPosition(nil,nil,(p==0 or p>p_S) and p_S or 0)
+    local p_S = editor.GetString(nil,nil,2):find('%S') or 1
+    editor.SetPosition(nil,nil,(p==1 or p>p_S) and p_S or 1)
     editor.Redraw()
 end
 
