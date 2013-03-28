@@ -121,7 +121,7 @@ find_files=function(list, silent)
         if wind.Type~=1 and fn:find(curmatch,1,true) and list.filename~=fn and not exclude_dir[fn] then
             exclude_dir[fn]=true
             list.found[curmatch]=true
-            table.insert(list,{text=string.format('Editor %i: %s',i-1,fn), file=fn, sub=true, editor=i, list=list })
+            table.insert(list,{text=string.format('Editor %i: %s',i,fn), file=fn, sub=true, editor=i, list=list })
         end
     end
 
