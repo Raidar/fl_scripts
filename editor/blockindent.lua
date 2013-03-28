@@ -17,11 +17,13 @@ local function indent(str)
 end
 
 local function unindent(str)
-    if str.StringText:find(sunindent) then editor.SetString(nil,nil,str.StringText:gsub(sunindent,''),'') end
+    if str.StringText:find(sunindent) then
+        EditorSetString(nil, nil, str.StringText:gsub(sunindent, ''), '')
+    end
 end
 
 local function indent_h(handler)
-    histControl(nil,startBlock)
+    histControl(nil, startBlock)
     editinfo=EditorGetInfo()
     tabsize=editinfo.TabSize
     sindent=string.format('%'..tabsize..'s','')
@@ -29,7 +31,7 @@ local function indent_h(handler)
     for _,str in farselection(true) do
         handler(str)
     end
-    histControl(nil,stopBlock)
+    histControl(nil, stopBlock)
     EditorRedraw()
 end
 

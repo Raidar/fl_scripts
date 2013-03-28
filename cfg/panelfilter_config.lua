@@ -1,0 +1,2 @@
+
+return { LuaFarHotKey='L' }

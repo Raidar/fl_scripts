@@ -1,16 +1,18 @@
 local smenu=require"far2.searchmenu"
 local flags = far.Flags
 local band, bor, bxor, bnot = bit64.band, bit64.bor, bit64.bxor, bit64.bnot
-local kF2  ={BreakKey='F2'}
-local bClose  ={BreakKey='DELETE'}
-local bGoto={BreakKey='RIGHT'}
-local bkeys={kF2,bClose,bGoto,[kF2]=true,[bClose]=true,[bGoto]=true}
-local mFlags={ Flags = {FMENU_WRAPMODE=1,FMENU_AUTOHIGHLIGHT=1}, Title='Screens', Bottom='F2: save, del: close, right: setpath'}
+local kF2 = {BreakKey='F2'}
+local bClose = {BreakKey='DELETE'}
+local bGoto = {BreakKey='RIGHT'}
+local bkeys = { kF2, bClose, bGoto, [kF2] = true, [bClose] = true, [bGoto] = true}
+local mFlags = { Flags = {FMENU_WRAPMODE=1, FMENU_AUTOHIGHLIGHT=1},
+                 Title='Screens', Bottom='F2: save, del: close, right: setpath' }
 
 local function restore_focus(item,active)
     if item~=active then
         local active_i=active and active.i or 0
-        far.AdvControl('ACTL_SETCURRENTWINDOW',active_i-(active_i>item.i and 1 or 0))
+        far.AdvControl('ACTL_SETCURRENTWINDOW',
+                       active_i - (active_i > item.i and 1 or 0))
         far.AdvControl('ACTL_COMMIT')
     end
 end
@@ -29,7 +31,10 @@ local function show_windows()
         local title=wind.Name:match('[^\\/]+$')
 --        local etype= wintype=='E' and ('[ %s ]'):format(editors[i]) or '        '
         wind.SearchText=title or 'none'
-        wind.text=('%2i. %s %s %s%s'):format(i, wintype,wind.Modified and '*' or ' ',wind.Current and '>' or ' ', title or 'none')
+        wind.text=('%2i. %s %s %s%s'):format(i, wintype,
+                                             wind.Modified and '*' or ' ',
+                                             wind.Current and '>' or ' ',
+                                             title or 'none')
         wind.i=i
         table.insert(windows,wind)
     end
@@ -75,7 +80,10 @@ local function show_windows()
             for i=0, pinfo.ItemsNumber-1 do
                local item=panel.GetPanelItem(nil,1,i)
                if item.FileName==sname then
-                   panel.RedrawPanel(nil, 1, { CurrentItem=i, TopPanelItem=( i>=topitem and i<(topitem+hheight) and topitem or i>hheight and i-hheight or 0 ) })
+                   panel.RedrawPanel(nil, 1,
+                                     { CurrentItem = i,
+                                       TopPanelItem = (i >= topitem and i < (topitem + hheight) and topitem or
+                                                       i > hheight and i - hheight or 0 ) })
                    break
                end
             end

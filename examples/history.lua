@@ -5,7 +5,7 @@ local F=far.Flags
 local regkey=far.PluginStartupInfo().RootKey:match('(.+)\\Plugins')
 
 local function get_history(key,value)
-    local v,typ=far.GetRegKey(key,value),''
+    local v, typ = win.GetRegKey("HKCU", key, value), ''
     if not v then
         far.Message( ("The is no history or error.\nRegistry message:%s"):format(typ),"History",nil,'w')
         return

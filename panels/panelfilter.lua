@@ -3,8 +3,9 @@
 local pluginDir = far.PluginStartupInfo().ModuleDir
 local helpTopic = "<" .. pluginDir .. [[scripts\fl_scripts\doc\>panelfilter]]
 
-context.config.register{key="flpanelfilter", inherit=false, path="fl_scripts", name="panelfilter"}
-local F=far.Flags
+context.config.register{key = "flpanelfilter", inherit = false,
+                        path = "fl_scripts", name = "panelfilter"}
+local F = far.Flags
 
 local redirect_keys = { Up=1, Down=1, Ins=1, PgUp=1, PgDn=1 }
 
@@ -12,7 +13,7 @@ local redirect_keys = { Up=1, Down=1, Ins=1, PgUp=1, PgDn=1 }
 PanelFilter = rawget(getfenv(1), "PanelFilter") or { Mask="" }
 
 local function call_macro(str)
-    far.MacroPost(str, "KMFLAGS_DISABLEOUTPUT")
+    far.MacroPost(str, 0)
 end
 
 -- call filter dialog, open or create _luafilter_, goto filter

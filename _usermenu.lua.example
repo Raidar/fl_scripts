@@ -84,7 +84,7 @@ local entries={
     { name='Panel Filter                        &:', key=nil, script=scripts.panelfilter, argument="filter()" },
     { name='Panel Filter: delete                &;', key=nil, script=scripts.panelfilter, argument="delete_filter()" },
     { name='Alias                               &@', key=nil, script=scripts.alias },
---  { name='Winepath                            &w', key=nil, script=scripts.winepath },
+    { name='Winepath                            &w', key=nil, script=scripts.winepath },
 
     { name='Reload macros', key=nil, script=scripts.reload_macro },
 }
