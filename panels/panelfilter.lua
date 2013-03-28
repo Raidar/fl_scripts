@@ -13,7 +13,7 @@ local redirect_keys = { Up=1, Down=1, Ins=1, PgUp=1, PgDn=1 }
 PanelFilter = rawget(getfenv(1), "PanelFilter") or { Mask="" }
 
 local function call_macro(str)
-    far.MacroPost(str, 0)
+    far.MacroPost(str, "KMFLAGS_DISABLEOUTPUT")
 end
 
 -- call filter dialog, open or create _luafilter_, goto filter

@@ -115,13 +115,13 @@ find_files=function(list, silent)
         return
     end
     local count = far.AdvControl('ACTL_GETWINDOWCOUNT')
-    for i=0,count-1 do
+    for i=1,count do
         local wind=far.AdvControl('ACTL_GETWINDOWINFO',i)
         local fn=wind.Name
         if wind.Type~=1 and fn:find(curmatch,1,true) and list.filename~=fn and not exclude_dir[fn] then
             exclude_dir[fn]=true
             list.found[curmatch]=true
-            table.insert(list,{text=string.format('Editor %i: %s',i,fn), file=fn, sub=true, editor=i, list=list })
+            table.insert(list,{text=string.format('Editor %i: %s',i-1,fn), file=fn, sub=true, editor=i, list=list })
         end
     end
 
@@ -210,7 +210,7 @@ function navigate_current()
     local list=init()
     if not list then return end
     list.extensions=list.cfg.extensions
-    local cur_string = editor.GetString(nil,-1,2)
+    local cur_string = editor.GetString(nil,nil,2)
     list.curline=list.editorcurline
     for _,pattern in pairs(list.cfg.patterns) do
         list.curmatch=cur_string:match(pattern,1)
