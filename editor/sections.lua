@@ -25,8 +25,8 @@ local function check_pattern(n_start, n_local, strings, pattern)
     if type(pattern)=='string' then
         match=str:match(pattern)
         if match then
-            return { text = string.format('%4i � %s', n_global+1 , converter(match)), line=n_global }
-            --return { text = string.format('%'..GetLineFieldWidth()..'i � %s', n_global+1 , converter(match)), line=n_global }
+            return { text = string.format('%4i │ %s', n_global+1 , converter(match)), line=n_global }
+            --return { text = string.format('%'..GetLineFieldWidth()..'i │ %s', n_global+1 , converter(match)), line=n_global }
         end
     elseif type(pattern)=='table' then
         if pattern.multiline then
