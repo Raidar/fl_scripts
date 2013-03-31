@@ -11,7 +11,7 @@ local function dlg_handler(handle,msg,p1,p2)
         if p2.EventType==flags.KEY_EVENT then
             local key=far.InputRecordToName(p2)
             str=(str..' '..key):sub(-width)
-            far.SendDlgMessage(handle, flags.DM_SETTEXT, 1, str)
+            far.SendDlgMessage(handle, flags.DM_SETTEXT, 2, str)
 
             if key=='Esc' then far.SendDlgMessage(handle, flags.DM_CLOSE) end
         end

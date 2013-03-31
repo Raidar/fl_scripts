@@ -190,7 +190,7 @@ local chain={reset, compile, call, form}
 
 local function dlg_handler(handle,msg,p1,p2)
   if msg==F.DN_INITDIALOG or msg==F.DN_EDITCHANGE then
-    local cur_item=items[p1+1]
+    local cur_item=items[p1]
     cur_item[IND_DATA] = far.GetDlgItem(handle,p1,nil)[IND_DATA]
     if cur_item.fmt then
       if not pcall(form) then cur_item.fmt[IND_DATA]='' end
@@ -216,9 +216,9 @@ local function dlg_handler(handle,msg,p1,p2)
       end
     end
   elseif msg==F.DN_BTNCLICK then
-    if items[p1+1].item then active_item=items[p1+1].item end
-  elseif msg==F.DN_CLOSE and p1>=0 then
-    local btn=items[p1+1]
+    if items[p1].item then active_item=items[p1].item end
+  elseif msg==F.DN_CLOSE and p1>=1 then
+    local btn=items[p1]
     if btn.action then return btn.action(handle) end
   end
 end
