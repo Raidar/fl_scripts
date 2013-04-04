@@ -183,7 +183,7 @@ local function open_editor(item)
         far.AdvControl('ACTL_SETCURRENTWINDOW',item.editor)
         far.AdvControl('ACTL_COMMIT')
     else
-        editor.Editor(item.file,nil,nil,nil,nil,nil,{EF_NONMODAL=true, EF_IMMEDIATERETURN=false}, -1, -1)
+        editor.Editor(item.file,nil,nil,nil,nil,nil,{EF_NONMODAL=true, EF_IMMEDIATERETURN=false})
     end
 end
 
