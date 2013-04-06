@@ -18,24 +18,24 @@ local function restore_focus(item,active)
     end
 end
 
-local function show_windows()
---    local editors=ctxdata and ctxdata.editor
-    local windows={}
+local function show_windows ()
+    --local editors = ctxdata and ctxdata.editor
+    local windows = {}
     local active
     local count = far.AdvControl('ACTL_GETWINDOWCOUNT')
     for i = 1, count do
-        local wind=far.AdvControl('ACTL_GETWINDOWINFO',i)
+        local wind = far.AdvControl('ACTL_GETWINDOWINFO', i)
         wind.Current = (band(wind.Flags, F.WIF_CURRENT) ~= 0)
         wind.Modified = (band(wind.Flags, F.WIF_MODIFIED) ~= 0)
-        if wind.Current then active=wind end
-        local wintype=wind.TypeName:sub(1,1)
-        local title=wind.Name:match('[^\\/]+$')
---      local etype= wintype=='E' and ('[ %s ]'):format(editors[i]) or '        '
-        wind.SearchText=title or 'none'
-        wind.text=('%2i. %s %s %s%s'):format(i, wintype,
-                                             wind.Modified and '*' or ' ',
-                                             wind.Current and '>' or ' ',
-                                             title or 'none')
+        if wind.Current then active = wind end
+        local wintype = wind.TypeName:sub(1, 1)
+        local title = wind.Name:match('[^\\/]+$')
+        --local etype = wintype == 'E' and ('[ %s ]'):format(editors[i]) or '        '
+        wind.SearchText = title or 'none'
+        wind.text = ('%2i. %s %s %s%s'):format(i, wintype,
+                                               wind.Modified and '*' or ' ',
+                                               wind.Current and '>' or ' ',
+                                               title or 'none')
         wind.i=i
         table.insert(windows,wind)
     end
