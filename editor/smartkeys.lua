@@ -5,7 +5,7 @@ local FK = far.Keys
 function smarthome()
     local p = editor.GetInfo().CurPos
     local p_S = editor.GetString(nil,nil,2):find('%S') or 1
-    editor.SetPosition(nil,nil,(p==1 or p>p_S) and p_S or 1)
+    editor.SetPosition(nil,nil,(p==1 or p>p_S) and p_S or 1,nil,nil,1)
     editor.Redraw()
 end
 
