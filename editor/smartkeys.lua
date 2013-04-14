@@ -15,14 +15,13 @@ local function find_nearest_space_right(line,pos,down)
    local newpos=nil
    for i=1,10 do
        if down and line<down then return nil end
-       line = line - (down and -1 or 1)
+       line = line + (down and 1 or -1)
        local str=editor.GetString(nil,line,2)
        if str and str~='' then
            local pp,spos=str:find('%s%s+%S',pos)
            if spos then
                if not newpos or newpos>spos then
-                   newpos = spos
-                   return newpos-1
+                   return spos
                end
            end
        end

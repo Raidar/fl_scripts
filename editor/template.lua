@@ -17,10 +17,10 @@ local defer_list=nil
 local handler = nil
 
 --------------------------------------------------------------------------------
---define some useful functions to use here ant from a template
+--define some useful functions to use here and from a template
 setmetatable(method_genv,{ __index = function(s,i) return _G[i] end} )
 local function push(str,nonewline)
-    local lastline = editor.GetInfo().TotalLines-1
+    local lastline = editor.GetInfo().TotalLines
     editor.SetPosition(nil,{CurLine=lastline})
     editor.InsertText(nil,str)
     if not nonewline then editor.InsertString() end

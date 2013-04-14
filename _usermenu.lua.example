@@ -55,8 +55,8 @@ local entries={
     { name='Sections', key=hotkeys.sections, script=scripts.sections  },
     { name='Multiclip', key=hotkeys.multiclip, script=scripts.multiclip  },
 
-    { name='Copy up sumbol',   hide=true, key=hotkeys.copyupsymbol, script=scripts.copysymbol, argument='copysymbol()' },
-    { name='Copy down sumbol', hide=true, key=hotkeys.copydownsymbol, script=scripts.copysymbol, argument='copysymbol(true)' },
+    { name='Copy up symbol',   hide=true, key=hotkeys.copyupsymbol, script=scripts.copysymbol, argument='copysymbol()' },
+    { name='Copy down symbol', hide=true, key=hotkeys.copydownsymbol, script=scripts.copysymbol, argument='copysymbol(true)' },
 
     { name='SmartHome',  hide=true, key=hotkeys.smarthome, script=scripts.smartkeys, argument='smarthome()' },
     { name='SmartTab',   hide=true, key=hotkeys.smarttab, script=scripts.smartkeys, argument='smarttab()' },

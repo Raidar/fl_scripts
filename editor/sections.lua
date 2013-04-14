@@ -3,12 +3,10 @@ local editors=ctxdata.editors
 
 local smenu=require"far2.searchmenu"
 
-local converter=editor.EditorToOEM or function(a) return a end
-
 local function GetLineFieldWidth ()
   local Info = editor.GetInfo()
-  return tostring(Info.TotalLines):len() or 4 --+ 1
-end --
+  return tostring(Info.TotalLines):len() --+ 1
+end
 
 local function check_pattern(n_start, n_local, strings, pattern)
     local str
@@ -25,8 +23,7 @@ local function check_pattern(n_start, n_local, strings, pattern)
     if type(pattern)=='string' then
         match=str:match(pattern)
         if match then
-            return { text = string.format('%4i │ %s', n_global+1 , converter(match)), line=n_global }
-            --return { text = string.format('%'..GetLineFieldWidth()..'i │ %s', n_global+1 , converter(match)), line=n_global }
+            return { text = string.format('%4i │ %s', n_global, match), line=n_global }
         end
     elseif type(pattern)=='table' then
         if pattern.multiline then
@@ -51,12 +48,10 @@ end
 
 local function find_sections(pattern)
     local editinfo = editor.GetInfo()
-    local filename = editinfo.FileName
-    local lines = editinfo.TotalLines
     local list={}
     local strings={}
     local menu_pos=0
-    for linen=0,lines-1 do
+    for linen=1,editinfo.TotalLines do
         local item=check_pattern(linen, 1, strings, pattern)
         if item then
             item.text=item.text:gsub('&', '&&')
@@ -72,7 +67,7 @@ local function find_sections(pattern)
         return
     end
     local key,f = smenu( { Flags = {FMENU_WRAPMODE=1},
-                           Title=filename:match('.+[/\\](.+)',1), HelpTopic="Contents", SelectIndex=menu_pos},
+                           Title=editinfo.FileName:match('.+[/\\](.+)',1), HelpTopic="Contents", SelectIndex=menu_pos},
                            list)
     if key and key.line then
         local kline=key.line
