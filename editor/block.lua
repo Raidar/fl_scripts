@@ -1,13 +1,13 @@
 local farselection=require 'fl_scripts/utils/block_iterator'
 
-function jumptoblockbegin()
+local function jumptoblockbegin()
     for _,str in farselection() do
         editor.SetPosition(nil, {CurPos=str.SelStart})
         break
     end
 end
 
-function jumptoblockend()
+local function jumptoblockend()
     local str,line
     for _,str1 in farselection() do
         line,str=_,str1
@@ -18,7 +18,6 @@ function jumptoblockend()
 end
 
 local call=(...)[1]
-if call then
-    setfenv(loadstring(call), getfenv(1))()
-    return
+if call=='jumpbegin' then jumptoblockbegin()
+elseif call=='jumpend' then jumptoblockend()
 end

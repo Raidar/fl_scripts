@@ -55,36 +55,36 @@ local entries={
     { name='Sections', key=hotkeys.sections, script=scripts.sections  },
     { name='Multiclip', key=hotkeys.multiclip, script=scripts.multiclip  },
 
-    { name='Copy up symbol',   hide=true, key=hotkeys.copyupsymbol, script=scripts.copysymbol, argument='copysymbol()' },
-    { name='Copy down symbol', hide=true, key=hotkeys.copydownsymbol, script=scripts.copysymbol, argument='copysymbol(true)' },
+    { name='Copy up symbol',   hide=true, key=hotkeys.copyupsymbol, script=scripts.copysymbol, argument='copyup' },
+    { name='Copy down symbol', hide=true, key=hotkeys.copydownsymbol, script=scripts.copysymbol, argument='copydown' },
 
-    { name='SmartHome',  hide=true, key=hotkeys.smarthome, script=scripts.smartkeys, argument='smarthome()' },
-    { name='SmartTab',   hide=true, key=hotkeys.smarttab, script=scripts.smartkeys, argument='smarttab()' },
+    { name='SmartHome',  hide=true, key=hotkeys.smarthome, script=scripts.smartkeys, argument='smarthome' },
+    { name='SmartTab',   hide=true, key=hotkeys.smarttab, script=scripts.smartkeys, argument='smarttab' },
 
-    { name='AutoComment',    hide=true, key=hotkeys.autocomment, script=scripts.comment, argument='autocomment()' },
-    { name='AutoUnComment',  hide=true, key=hotkeys.autouncomment, script=scripts.comment, argument='autouncomment()' },
+    { name='AutoComment',    hide=true, key=hotkeys.autocomment, script=scripts.comment, argument='comment' },
+    { name='AutoUnComment',  hide=true, key=hotkeys.autouncomment, script=scripts.comment, argument='uncomment' },
 
-    { name='Jump to block begin', hide=true, key=hotkeys.jumptoblockbegin, script=scripts.block, argument='jumptoblockbegin()' },
-    { name='Jump to block end',   hide=true, key=hotkeys.jumptoblockend, script=scripts.block, argument='jumptoblockend()' },
+    { name='Jump to block begin', hide=true, key=hotkeys.jumptoblockbegin, script=scripts.block, argument='jumpbegin' },
+    { name='Jump to block end',   hide=true, key=hotkeys.jumptoblockend, script=scripts.block, argument='jumpend' },
 
-    { name='Indent right',        hide=true, key=hotkeys.indentright, script=scripts.blockindent, argument='indentright()' },
-    { name='Indent left',         hide=true, key=hotkeys.indentleft, script=scripts.blockindent, argument='indentleft()' },
+    { name='Indent right',        hide=true, key=hotkeys.indentright, script=scripts.blockindent, argument='indentright' },
+    { name='Indent left',         hide=true, key=hotkeys.indentleft, script=scripts.blockindent, argument='indentleft' },
 
-    { name='Select stream (begin)', hide=true, key=hotkeys.select_stream, script=scripts.select, argument='exselect()' },
-    { name='Select column (begin)', hide=true, key=hotkeys.select_column, script=scripts.select, argument='exselect(true)' },
+    { name='Select stream (begin)', hide=true, key=hotkeys.select_stream, script=scripts.select, argument='selstream' },
+    { name='Select column (begin)', hide=true, key=hotkeys.select_column, script=scripts.select, argument='selcolumn' },
 
-    { name='Navigate',              hide=true, key=hotkeys.navigate, script=scripts.nav, argument='navigate()' },
-    { name='Navigate current',      hide=true, key=hotkeys.navigate_current, script=scripts.nav, argument='navigate()' },
-    { name='Find associated file',  hide=true, key=hotkeys.source, script=scripts.nav, argument='source()' },
+    { name='Navigate',              hide=true, key=hotkeys.navigate, script=scripts.nav, argument='navigate' },
+    { name='Navigate current',      hide=true, key=hotkeys.navigate_current, script=scripts.nav, argument='navigate_current' },
+    { name='Find associated file',  hide=true, key=hotkeys.source, script=scripts.nav, argument='findsource' },
 
-    { name='Jump to the next selected item.     &>', key=nil, script=scripts.seljump, argument='selection_jump("next")' },
-    { name='Jump to the previous selected item. &<', key=nil, script=scripts.seljump, argument='selection_jump("prev")' },
-    { name='Jump to the first selected item.    &^', key=nil, script=scripts.seljump, argument='selection_jump("first")' },
-    { name='Jump to the last selected item.     &v', key=nil, script=scripts.seljump, argument='selection_jump("last")' },
-    { name='Panel Filter                        &:', key=nil, script=scripts.panelfilter, argument="filter()" },
-    { name='Panel Filter: delete                &;', key=nil, script=scripts.panelfilter, argument="delete_filter()" },
+    { name='Jump to the next selected item.     &>', key=nil, script=scripts.seljump, argument='next' },
+    { name='Jump to the previous selected item. &<', key=nil, script=scripts.seljump, argument='prev' },
+    { name='Jump to the first selected item.    &^', key=nil, script=scripts.seljump, argument='first' },
+    { name='Jump to the last selected item.     &v', key=nil, script=scripts.seljump, argument='last' },
+    { name='Panel Filter                        &:', key=nil, script=scripts.panelfilter, argument="filter" },
+    { name='Panel Filter: delete                &;', key=nil, script=scripts.panelfilter, argument="delete_filter" },
     { name='Alias                               &@', key=nil, script=scripts.alias },
-    { name='Winepath                            &w', key=nil, script=scripts.winepath },
+--  { name='Winepath                            &w', key=nil, script=scripts.winepath },
 
     { name='Reload macros', key=nil, script=scripts.reload_macro },
 }
@@ -100,7 +100,7 @@ end
 
 ----------------------------------------
 AddCommand('calc', scripts.calc.file)
-AddCommand('filter', scripts.panelfilter.file, "filter()")
+AddCommand('filter', scripts.panelfilter.file, "filter")
 AddCommand("dir", scriptspath.."examples/fs_menu")
 
 MakeResident(scripts.editor_actions.file)

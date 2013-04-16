@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 -- Jumps to the next/previous or first/last selected item on the active panel.
 -- @param where can be 'next','prev','first','last'
-function selection_jump(where)
+local function selection_jump(where)
     local pinfo = panel.GetPanelInfo(nil,1)
     if pinfo.SelectedItemsNumber==0 then return end
     local selected = far.Flags.PPIF_SELECTED
@@ -37,7 +37,4 @@ function selection_jump(where)
 end
 
 local call=(...)[1]
-if call then
-    setfenv(loadstring(call), getfenv(1))()
-    return
-end
+if call then selection_jump(call) end

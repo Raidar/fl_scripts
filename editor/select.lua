@@ -6,7 +6,7 @@ local my_memory=fl_scripts.my_memory
 --- Effortless select
 -- @usage When called first time remembers current position, otherwise selects the block between previous position and current.
 -- @param column Determines whether the block should be of column type.
-function exselect(column)
+local function exselect(column)
     local sel = my_memory.exselect
     local info = editor.GetInfo()
     if sel then
@@ -29,7 +29,6 @@ function exselect(column)
 end
 
 local call=(...)[1]
-if call then
-    setfenv(loadstring(call), getfenv(1))()
-    return
+if call=='selstream' then exselect(false)
+elseif call=='selcolumn' then exselect(true)
 end

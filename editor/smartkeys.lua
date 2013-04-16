@@ -2,7 +2,7 @@
 local FK = far.Keys
 ---------------------------------------------------------------------
 -- Sets position to the first nonspace character
-function smarthome()
+local function smarthome()
     local p = editor.GetInfo().CurPos
     local p_S = editor.GetString(nil,nil,2):find('%S') or 1
     editor.SetPosition(nil,nil,(p==1 or p>p_S) and p_S or 1,nil,nil,1)
@@ -56,7 +56,7 @@ end
 
 ---------------------------------------------------------------------
 --
-function smarttab()
+local function smarttab()
     local einfo = editor.GetInfo()
     local l,p = einfo.CurLine,einfo.CurPos
     local spos = find_nearest_space_right(l,p)  -- einfo.TotalLines
@@ -67,7 +67,6 @@ function smarttab()
 end
 
 local call=(...)[1]
-if call then
-    setfenv(loadstring(call), getfenv(1))()
-    return
+if call=='smarthome' then smarthome()
+elseif call=='smarttab' then smarttab()
 end

@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------
 -- insert a single symbol from the upper or lower line
-function copysymbol(down)
+local function copysymbol(down)
     local einfo = editor.GetInfo()
     local l,p = einfo.CurLine,einfo.CurPos
     if (l==1 and not down) or (l==einfo.TotalLines and down) then return end
@@ -13,7 +13,6 @@ function copysymbol(down)
 end
 
 local call=(...)[1]
-if call then
-    setfenv(loadstring(call), getfenv(1))()
-    return
+if call=='copyup' then copysymbol(false)
+elseif call=='copydown' then copysymbol(true)
 end

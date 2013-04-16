@@ -187,7 +187,7 @@ local function open_editor(item)
     end
 end
 
-function navigate()
+local function navigate()
     local list=init()
     if not list then return end
     list.extensions=list.cfg.extensions
@@ -206,7 +206,7 @@ function navigate()
     open_editor(key)
 end
 
-function navigate_current()
+local function navigate_current()
     local list=init()
     if not list then return end
     list.extensions=list.cfg.extensions
@@ -222,7 +222,7 @@ function navigate_current()
     open_editor(key)
 end
 
-function source()
+local function source()
     local list=init()
     if not list then return end
     list.extensions=list.cfg.source_extensions
@@ -236,10 +236,9 @@ function source()
 end
 
 local function main(call)
-    if call then
-        setfenv(loadstring(call), getfenv(1))()
-        return
-    end
+    if call=='navigate' then navigate(); return; end
+    if call=='navigate_current' then navigate_current(); return; end
+    if call=='findsource' then source(); return; end
 
     local menu = { { text='&Navigate',call=navigate},{text='Navigate &current',call=navigate_current},{text='Find &source',call=source} }
     local key,item = smenu({Flags = {FMENU_WRAPMODE=1, FMENU_AUTOHIGHLIGHT=1}, Title='Navigation'},menu)

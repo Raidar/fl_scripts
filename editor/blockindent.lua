@@ -35,11 +35,7 @@ local function indent_h(handler)
     EditorRedraw()
 end
 
-function indentleft() indent_h(unindent) end
-function indentright() indent_h(indent) end
-
 local call=(...)[1]
-if call then
-    setfenv(loadstring(call), getfenv(1))()
-    return
+if call=='indentright' then indent_h(indent)
+elseif call=='indentleft' then indent_h(unindent)
 end

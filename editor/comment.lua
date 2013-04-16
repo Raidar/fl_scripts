@@ -173,16 +173,14 @@ local function do_the_job (ftable)
     cfg=nil
 end
 
-function autocomment ()   do_the_job(comment)   end
-function autouncomment () do_the_job(uncomment) end
+local function autocomment ()   do_the_job(comment)   end
+local function autouncomment () do_the_job(uncomment) end
 
 -------------------------------------------------------------------------------
 -- Call 'comment' menu
 local function comment_menu (call)
-    if call then
-        setfenv(loadstring(call), getfenv(1))()
-        return
-    end
+    if call=='comment' then autocomment(); return; end
+    if call=='uncomment' then autouncomment(); return; end
 
     local menu = { {text='&Auto comment',   call=autocomment      },
                    { text='&Uncomment',     call=autouncomment    } }

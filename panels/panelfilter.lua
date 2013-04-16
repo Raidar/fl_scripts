@@ -91,8 +91,8 @@ local function filter()
 end
 
 local call=(...)[1]
-if call=="filter()" then
+if call=="filter" then
     filter()
-elseif call=="delete_filter()" then
+elseif call=="delete_filter" then
     call_macro(delfilter)
 end
