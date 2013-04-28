@@ -65,12 +65,13 @@ local function view_history()
     if item.text:find("^Editor") then
       editor.Editor(item.file,nil,nil,nil,nil,nil,F.EF_NONMODAL)
     else
-      viewer.Viewer(item.file,nil,nil,nil,nil,nil,F.EF_NONMODAL)
+      viewer.Viewer(item.file,nil,nil,nil,nil,nil,F.VF_NONMODAL)
     end
   end
 end
 
-local call=(...)[1]
+local args = ...
+local call = type(args)=="table" and args[1] or args
 if call=='commands' then commands_history()
 elseif call=='dirs' then dirs_history()
 elseif call=='view' then view_history()
