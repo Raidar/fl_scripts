@@ -17,19 +17,18 @@ local MacroPost = far.MacroPost
 -- call filter dialog, open or create _luafilter_, goto filter
 local fil_1=[[
     Keys"CtrlI"
-    _G.pos=Menu.Select("_luafilter_",1)
-    if _G.pos<0 then
+    local pos=Menu.Select("_luafilter_",1)
+    if pos<0 then
         exit()
     else
-        if _G.pos==0 then
-            Keys"Ins"
-            Keys"CtrlY"
+        if pos==0 then
+            Keys"Ins CtrlY"
             print("_luafilter_")
-            Keys("Down Down Down Down Down Down Down Down Down Down Space Space")
-            Keys("Up Up Up Up Up Up Up Up")
+            for k=1,10 do Keys("Down") end
+            Keys("Space Space")
+            for k=1,8 do Keys("Up") end
         else
-            Keys"F4"
-            Keys"Down Down"
+            Keys"F4 Down Down"
         end
     end
     Keys"CtrlY"
@@ -37,18 +36,15 @@ local fil_1=[[
 
 -- after filling filter, close dialog, turn on, call plugin again
 local fil_3=[[
-    Keys "Enter"
-    Keys "BS Up +"
-    Keys "Enter"
-    print("lfe:filter") Keys"Enter"
-    Keys"End"
+    Keys "Enter BS Up + Enter"
+    print("lfe:filter")
+    Keys"Enter End"
 ]]
 
 local delfilter=[[
     Keys"CtrlI"
     if Menu.Select("_luafilter_",1)>0 then
-        Keys"Del"
-        Keys"Enter"
+        Keys"Del Enter"
     end
     Keys"Esc"
 ]]
