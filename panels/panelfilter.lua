@@ -12,9 +12,7 @@ local redirect_keys = { Up=1, Down=1, Ins=1, PgUp=1, PgDn=1 }
 -- packet-scoped "global" variable:
 PanelFilter = rawget(getfenv(1), "PanelFilter") or { Mask="" }
 
-local function call_macro(str)
-    far.MacroPost(str, "KMFLAGS_DISABLEOUTPUT")
-end
+local MacroPost = far.MacroPost
 
 -- call filter dialog, open or create _luafilter_, goto filter
 local fil_1=[[
@@ -56,11 +54,11 @@ local delfilter=[[
 ]]
 
 local function filter_macro(str, key)
-    call_macro "Keys'Enter'"
-    if key then call_macro("Keys("..key..")") end
-    call_macro(fil_1)
-    call_macro('print "*'..str..'*"')
-    call_macro(fil_3)
+    MacroPost "Keys'Enter'"
+    if key then MacroPost("Keys("..key..")") end
+    MacroPost(fil_1)
+    MacroPost('print "*'..str..'*"')
+    MacroPost(fil_3)
 end
 
 local function dlg_handler(handle, msg, p1, p2)
@@ -71,7 +69,7 @@ local function dlg_handler(handle, msg, p1, p2)
         if p2.EventType==F.KEY_EVENT then
             local name = far.InputRecordToName(p2)
             if name=="Esc" then
-                call_macro(delfilter)
+                MacroPost(delfilter)
             elseif redirect_keys[name] then
                 filter_macro(PanelFilter.Mask, name)
             end
@@ -94,5 +92,5 @@ local call=(...)[1]
 if call=="filter" then
     filter()
 elseif call=="delete_filter" then
-    call_macro(delfilter)
+    MacroPost(delfilter)
 end
