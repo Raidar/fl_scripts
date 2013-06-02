@@ -51,7 +51,7 @@ local delfilter=[[
 
 local function filter_macro(str, key)
     MacroPost "Keys'Enter'"
-    if key then MacroPost("Keys("..key..")") end
+    if key then MacroPost("Keys('"..key.."')") end
     MacroPost(fil_1)
     MacroPost('print "*'..str..'*"')
     MacroPost(fil_3)
