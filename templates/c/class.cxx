@@ -1,4 +1,4 @@
-//@@ filename=far.EditorGetInfo().FileName:match('.+[/\\]([^%.]+)')
+//@@ filename=editor.GetInfo().FileName:match('.+[/\\]([^%.]+)')
 #include "@@return filename@@.h"
 
 //______________________________________________________________________________

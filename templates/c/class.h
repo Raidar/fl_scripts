@@ -1,4 +1,4 @@
-//@@ filename=far.EditorGetInfo().FileName:match('.+[/\\]([^%.]+)')
+//@@ filename=editor.GetInfo().FileName:match('.+[/\\]([^%.]+)')
 //@@ classname=filename:lower()
 #ifndef __@@return filename:upper()@@__
 #define __@@return filename:upper()@@__
