@@ -19,7 +19,7 @@ local types = {
       -- 1.1. plain text
 
           -- 1.1.-. default text
-  txt       = { pattern = { '^%s-[%d\.\)]+%s-.+' } },
+  txt       = { pattern = { '^%s-[%d.)]+%s-.+' } },
 
               -- rare
               -- test

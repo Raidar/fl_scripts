@@ -5,7 +5,7 @@ types.c= { patterns={'^%s-[#]include%s+["<]([^"<>]+)[">]'},
            paths=paths,
            source_paths={'..\\src','.'},
            source_extensions={'.cxx','.cc','.C','.cpp','.icc'} }
-types.lua = { patterns={'require%s-[\'"\(]+(.+)[\'"\(]+','dopath%s-[\'"\(]+(.+)[\'"\(]+','dofile%s-[\'"\(]+(.+)[\'"\(]+'},
+types.lua = { patterns={'require%s-[\'"(]+(.+)[\'"(]+','dopath%s-[\'"(]+(.+)[\'"(]+','dofile%s-[\'"(]+(.+)[\'"(]+'},
               extensions={'.lua'},
               paths=paths2 }
 types.tex = { patterns={'\\include{(.+)}','\\input{(.+)}'} ,
