@@ -31,7 +31,7 @@ local function defer(funct)
 end
 local function here()
     local pos=editor.GetInfo()
-    defer(function() editor.SetPosition(nil,pos) end)
+    defer(function() editor.SetPosition(nil,pos) editor.Redraw() end)
 end
 method_genv.here=here
 method_genv.defer=defer
