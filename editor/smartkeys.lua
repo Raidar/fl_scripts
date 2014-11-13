@@ -1,11 +1,15 @@
 
-local FK = far.Keys
+local F, FK = far.Flags, far.Keys
 ---------------------------------------------------------------------
 -- Sets position to the first nonspace character
 local function smarthome()
-    local p = editor.GetInfo().CurPos
+    local info = editor.GetInfo()
+    local p = info.CurPos
     local p_S = editor.GetString(nil,nil,2):find('%S') or 1
     editor.SetPosition(nil,nil,(p==1 or p>p_S) and p_S or 1,nil,nil,1)
+    if 0 == bit64.band(info.Options,F.EOPT_PERSISTENTBLOCKS) then
+      editor.Select(nil,"BTYPE_NONE")
+    end
     editor.Redraw()
 end
 
