@@ -21,14 +21,16 @@ local fil_1=[[
     if pos<0 then
         exit()
     else
+        local PosMask,PosAttrDir = 3,14
         if pos==0 then
             Keys"Ins CtrlY"
             print("_luafilter_")
-            for k=1,10 do Keys("Down") end
-            Keys("Space Space")
-            for k=1,8 do Keys("Up") end
+            for k=2,PosAttrDir do Keys("Down") end
+            Keys("Space Space Home")
+            for k=2,PosMask do Keys("Down") end
         else
-            Keys"F4 Down Down"
+            Keys"F4"
+            for k=2,PosMask do Keys("Down") end
         end
     end
     Keys"CtrlY"
